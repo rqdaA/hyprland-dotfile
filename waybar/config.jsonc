@@ -1,0 +1,125 @@
+{
+    "position": "bottom",
+    "layer": "top",
+    "height": 25,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "custom/dnd",
+        "pulseaudio",
+        "backlight",
+        "network",
+        "temperature",
+        //  "tray",
+        "memory",
+        "cpu",
+        "battery"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}"
+        // "persistent_workspaces": { "1": [], "2": [], "3": [], "4": [], "5": [], "6": [], "7": [], "8": [], "9": [], "10": [] },
+        // "format-icons": { "1": "󰋜", "2": "󰈹", "3": "󰠮", "4": "󰭹", "5": "󱓷", "6": "󱇧", "7": "󰊢", "8": "󰖲", "9": "󰕧", "10": "󰝚" }
+    },
+    "clock": {
+        "format": "󰅐 {:%Y-%m-%d %H:%M} 󰅐",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "battery": {
+        "interval": 3,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄{capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-full": "󱈑 {capacity}%",
+        "format-icons": [
+            "󱊡",
+            "󱊢",
+            "󱊣"
+        ]
+    },
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰤮 Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-middle": "exec $term_float nmtui"
+    },
+    "memory": {
+        "interval": 10,
+        "format": " {}%"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰖁 Muted",
+        "smooth-scrolling-threshold": 0.8,
+        "reverse-scrolling": 1,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 2,
+        "on-click": "pamixer -t",
+        "on-click-middle": "pavucontrol"
+    },
+    "temperature": {
+        "format": " {temperatureC}°C"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 20
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "smooth-scrolling-threshold": 0.8,
+        "reverse-scrolling": true,
+        "on-scroll-up": "brightnessctl s +5%",
+        "on-scroll-down": "brightnessctl s 5%-",
+        "on-click": "brightnessctl s +15%",
+        "format": "  {percent}%"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%"
+    },
+    "custom/dnd": {
+        "interval": "once",
+        "return-type": "json",
+        "format": "{}{icon}",
+        "format-icons": {
+            "default": "",
+            "dnd": "󰒲"
+        },
+        "on-click": "makoctl mode | grep 'do-not-disturb' && makoctl mode -r do-not-disturb || makoctl mode -a do-not-disturb; pkill -RTMIN+11 waybar",
+        "on-click-right": "makoctl restore",
+        "exec": "printf '{\"alt\":\"%s\",\"tooltip\":\"mode: %s\"}' $(makoctl mode | grep -q 'do-not-disturb' && echo dnd || echo default) $(makoctl mode | tail -1)",
+        "signal": 11
+    }
+}

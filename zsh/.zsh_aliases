@@ -1,0 +1,13 @@
+alias cat="bat"
+alias l="/bin/ls"
+alias docker="sudo docker"
+alias ll='eza --icons -lah --group-directories-first -rs date'
+alias lt='eza --icons -T -I .git -I node_modules -I target'
+alias v='nvim'
+alias ip='ip --br -c'
+alias gm='git commit -m'
+
+alias spt='systemctl --user start spotifyd.service && spt && systemctl --user stop spotifyd.service'
+alias john="$HOME/me/ctf/tools/john/john"
+alias lysithea="$HOME/me/ctf/tools/lysithea/lysithea"
+alias ffuf="$HOME/me/ctf/tools/ffuf/ffuf"

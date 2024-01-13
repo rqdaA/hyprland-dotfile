@@ -1,0 +1,48 @@
+pwn-exec() { docker exec --detach-keys "ctrl-x,y" -it "$1" bash }
+
+_remove_container() {
+    log=$(docker ps -a | grep $1) 1> /dev/null 2>&1
+    if [[ $log == *"Up "* ]]; then
+        read -q "REPLY?There is working container. Proceed?[y/n]" || return
+        (docker kill $1 && docker rm $1) 1> /dev/null 2>&1
+    elif [[ $log == *"Exited "* ]]; then
+        docker rm $1 1> /dev/null 2>&1
+    fi;
+}
+
+pwn-container() {
+    containers=("20.04" "22.04" "23.04" "23.10")
+    _remove_container "$2"
+    echo "pwn-img:${containers[$3]}"
+    docker run --privileged --rm -d -it --name $2 --mount type=bind,source="/home/user/me/ctf/$1/$2",target="/home/user/ctf/" "pwn-img:${containers[$3]}" 1> /dev/null 2>&1
+    pwn-exec $2
+}
+
+pwn-alpine-compile() {
+    if [[ $1 == "t" ]]; then
+        docker run --rm -v "$PWD:/work" -it alpine-gcc /bin/sh -c 'gcc -S exploit.c -o exploit.S && x86_64-alpine-linux-musl-gcc exploit.S --static -o exploit && chown 1000:1001 ./exploit'
+        strip ./exploit
+        gzip ./exploit -c > ./exploit.gz
+        base64 ./exploit.gz > ./exploit.gz.b64
+    else;
+        docker run --rm -v "$PWD:/work" -it alpine-gcc /bin/sh -c 'gcc exploit.c --static -o exploit && chown 1000:1001 ./exploit'
+    fi
+}
+
+pwn-sandbox() {
+    containers=("20.04" "22.04" "23.04" "23.10")
+    _remove_container "sand"
+    echo "pwn-img:${containers[$1]}"
+    docker run --rm -d -it --name "sand" --mount type=bind,source="/home/user/me/sand/lang",target="/home/user/ctf/" "pwn-img:${containers[$1]}" 1> /dev/null 2>&1
+    pwn-exec "sand"
+}
+
+cl() {
+    cd ${1:-"$HOME/me"} && ll
+}
+
+pomodoro() {
+    countdown 45m && mute
+    countdown 10m && unmute
+}
+

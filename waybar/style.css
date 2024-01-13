@@ -1,0 +1,146 @@
+@import "macchiato.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: monospace;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @base;
+  color: @text;
+}
+
+/* left */
+#workspaces {
+  background-color: @surface0;
+  margin: 5px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  padding: 0 20px;
+  color: @text;
+}
+
+#workspaces button.focused {
+  color: @text;
+  background-color: @overlay0;
+  border-radius: 30px;
+}
+
+#workspaces button:hover {
+  background-color: @overlay0;
+  border-radius: 30px;
+}
+/* fin-left */
+
+/* right right */
+
+/* #tray, */
+#network,
+#temperature,
+#cpu,
+#memory,
+#battery {
+  background-color: @surface0;
+  padding: 0px 10px;
+  margin: 5px 0px;
+}
+
+#network {
+  margin-left: 10px;
+  border-radius: 10px 0px 0px 10px;
+  color: @peach;
+}
+
+#battery {
+  color: @green;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#tray {
+  color: @mauve;
+}
+
+#memory {
+  color: @lavender;
+}
+
+#temperature {
+  color: @sky;
+}
+
+#cpu {
+  color: @maroon;
+}
+/* fin right right */
+
+/* start right left */
+#pulseaudio,
+#custom-dnd,
+#idle_inhibitor,
+#backlight {
+  background-color: @surface0;
+  padding: 0px 15px;
+  margin: 5px 0px;
+}
+
+#pulseaudio {
+  color: @rosewater;
+}
+
+#backlight {
+  margin-right: 10px;
+  color: @text;
+  border-radius: 0px 10px 10px 0px;
+}
+
+#custom-dnd {
+  color: @flamingo;
+}
+
+#idle_inhibitor {
+  color: @blue;
+  border-radius: 10px 0px 0px 10px;
+}
+
+#idle_inhibitor.activated {
+  color: @red;
+}
+/* fin right left */
+
+/* start center */
+#clock {
+  color: @flamingo;
+  background-color: @surface0;
+  padding: 0px 20px;
+  margin: 5px 0px;
+  border-radius: 10px;
+}
+/* fin center */

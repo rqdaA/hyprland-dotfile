@@ -1,0 +1,24 @@
+# preference
+dynamic_lines=true
+content_halign=fill
+line_wrap=1
+prompt=menu
+allow_images=true
+allow_markup=true
+width=40%
+dynamic_lines=true
+show_all=false
+hide_scroll=true
+print_command=true
+
+# search
+insensitive=true
+term=alacritty
+
+# keymap
+key_up=Control_L-p
+key_down=Control_L-n
+key_forward=Control_L-n
+key_backward=Control_L-p
+key_exit=Control_L-q
+key_expand=Control_L-l
