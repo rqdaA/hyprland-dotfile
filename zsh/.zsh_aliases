@@ -5,7 +5,11 @@ alias ll='eza --icons -lah --group-directories-first -rs date'
 alias lt='eza --icons -T -I .git -I node_modules -I target'
 alias v='nvim'
 alias ip='ip --br -c'
-alias gm='git commit -m'
+alias gm='GPG_TTY=$(tty) git commit -m'
+
+alias df='duf'
+alias du='dust -n 999'
+alias top='btm'
 
 alias spt='systemctl --user start spotifyd.service && spt && systemctl --user stop spotifyd.service'
 alias john="$HOME/me/ctf/tools/john/john"
