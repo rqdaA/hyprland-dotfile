@@ -40,7 +40,6 @@ window#waybar {
 
 /* right right */
 
-/* #tray, */
 #network,
 #temperature,
 #cpu,
@@ -101,7 +100,7 @@ window#waybar {
 }
 /* fin right right */
 
-/* start right left */
+/* start right center */
 #pulseaudio,
 #custom-dnd,
 #idle_inhibitor,
@@ -133,7 +132,17 @@ window#waybar {
 #idle_inhibitor.activated {
   color: @red;
 }
-/* fin right left */
+/* fin right center */
+
+/* start right left */
+#tray {
+  background-color: @surface0;
+  padding: 0px 15px;
+  margin: 5px 20px;
+  border-radius: 10px 10px 10px 10px;
+}
+/* end right left */
+
 
 /* start center */
 #clock {

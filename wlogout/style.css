@@ -1,0 +1,47 @@
+window {
+    font-family: JetBrainsMono Nerd Font Mono, monospace;
+    font-size: 12pt;
+    color: #cdd6f4;
+    background-color: rgba(17, 17, 27, .88);
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    border: none;
+    color: #ced7f4;
+    text-shadow: none;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgba(30, 30, 46, 0);
+    margin: 5px;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* button:hover { */
+/*     background-color: rgba(49, 50, 68, 0.1); */
+/* } */
+
+#lock {
+    background-image: image(url("/home/rona/.config/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/rona/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/home/rona/.config/wlogout/icons/sleep.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/rona/.config/wlogout/icons/power.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/rona/.config/wlogout/icons/restart.png"));
+}
+
+#hibernate {
+    background-image: image(url("/home/rona/.config/wlogout/icons/hibernate.png"));
+}

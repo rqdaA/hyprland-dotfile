@@ -9,13 +9,13 @@
         "clock"
     ],
     "modules-right": [
+        "tray",
         "idle_inhibitor",
         "custom/dnd",
         "pulseaudio",
         "backlight",
         "network",
         "temperature",
-        //  "tray",
         "memory",
         "cpu",
         "battery"
@@ -94,7 +94,8 @@
         }
     },
     "tray": {
-        "icon-size": 20
+        "icon-size": 20,
+        "spacing": 10
     },
     "backlight": {
         "device": "intel_backlight",
