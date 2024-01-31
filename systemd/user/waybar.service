@@ -1,0 +1,14 @@
+[Unit]
+Description=Highly customizable Wayland bar for Sway and Wlroots based compositors.
+Documentation=https://github.com/Alexays/Waybar/wiki/
+# PartOf=graphical.target
+# After=graphical.target
+# Requisite=graphical.target
+
+[Service]
+ExecStart=/usr/bin/waybar
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=always
+
+# [Install]
+# WantedBy=graphical.target
