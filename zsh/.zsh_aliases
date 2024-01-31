@@ -5,6 +5,7 @@ alias ll='eza --icons -lah --group-directories-first -rs date'
 alias lt='eza --icons -T -I .git -I node_modules -I target'
 alias v='nvim'
 alias ip='ip --br -c'
+alias o='mimeo'
 alias gm='GPG_TTY=$(tty) git commit -m'
 
 alias df='duf'
