@@ -1,4 +1,4 @@
-alias cat="bat"
+alias cat="bat --theme=Catppuccin-macchiato"
 alias l="/bin/ls"
 alias docker="sudo docker"
 alias ll='eza --icons -lah --group-directories-first -rs date'
