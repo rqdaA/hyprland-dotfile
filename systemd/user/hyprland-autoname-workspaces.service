@@ -1,0 +1,13 @@
+[Unit]
+Description=Hyprland autoname workspace
+Documentation=https://github.com/hyprland-community/hyprland-autoname-workspaces/wiki
+# PartOf=graphical.target
+# After=graphical.target
+# Requisite=graphical.target
+
+[Service]
+ExecStart=/usr/bin/hyprland-autoname-workspaces
+Restart=always
+
+# [Install]
+# WantedBy=graphical.target

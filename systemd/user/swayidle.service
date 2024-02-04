@@ -6,7 +6,8 @@ Documentation=https://github.com/swaywm/swayidle
 # Requisite=graphical.target
 
 [Service]
-ExecStart=/usr/bin/swaylock %i
+Environment=lock="gtklock -i"
+ExecStart=/usr/bin/swayidle -w timeout 600 ${lock} after-resume ${lock}
 Restart=always
 
 # [Install]
