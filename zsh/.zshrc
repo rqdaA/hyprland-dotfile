@@ -117,5 +117,6 @@ export GPG_TTY=$(tty)
 [[ ! -f ~/.config/zsh/.zshenv ]] || source ~/.config/zsh/.zshenv
 [[ ! -f ~/.config/zsh/.zsh_func ]] || source ~/.config/zsh/.zsh_func
 
-# bun completions
-[ -s "/home/user/.bun/_bun" ] && source "/home/user/.bun/_bun"
+eval "$(pyenv init -)"
+eval "$(thefuck --alias)"
+eval "$(atuin init zsh)"

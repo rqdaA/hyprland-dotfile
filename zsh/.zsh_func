@@ -29,15 +29,15 @@ pwn-alpine-compile() {
 }
 
 pwn-sandbox() {
-    containers=("20.04" "22.04" "23.04" "23.10")
+    containers=("18.04" "20.04" "22.04" "23.04" "23.10")
     _remove_container "sand"
     echo "pwn-img:${containers[$1]}"
-    docker run --rm -d -it --name "sand" --mount type=bind,source="/home/user/me/sand/lang",target="/home/user/ctf/" "pwn-img:${containers[$1]}" 1> /dev/null 2>&1
+    docker run --rm -d -it --name "sand" --mount type=bind,source="$HOME/me/sand/",target="/home/user/ctf/" "pwn-img:${containers[$1]}" # &> /dev/null
     pwn-exec "sand"
 }
 
 cl() {
-    cd ${1:-"$HOME/me"} && ll
+    cd ${1:-"$HOME/me"} 2>/dev/null || z $1 && ll
 }
 
 pomodoro() {

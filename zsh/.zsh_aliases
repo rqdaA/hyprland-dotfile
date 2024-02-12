@@ -1,7 +1,7 @@
 alias cat="bat --theme=Catppuccin-macchiato"
 alias l="/bin/ls"
 alias docker="sudo docker"
-alias ll='eza --icons -lah --group-directories-first -rs date'
+alias ll='eza --icons -laigh --group-directories-first -rs date'
 alias lt='eza --icons -T -I .git -I node_modules -I target'
 alias v='nvim'
 alias ip='ip --br -c'
