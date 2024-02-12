@@ -6,8 +6,10 @@ Documentation=https://github.com/swaywm/swayidle
 # Requisite=graphical.target
 
 [Service]
-Environment=lock="gtklock -i"
-ExecStart=/usr/bin/swayidle -w timeout 600 ${lock} after-resume ${lock}
+Environment=lock="gtklock --no-input-inhibit --start-hidden --daemonize"
+Environment=enable_screen="hyprctl dispatch dpms on"
+Environment=disable_screen="hyprctl dispatch dpms off"
+ExecStart=/usr/bin/swayidle -w timeout 60 ${lock} timeout 120 ${disable_screen} resume ${enable_screen} after-resume ${lock}
 Restart=always
 
 # [Install]
