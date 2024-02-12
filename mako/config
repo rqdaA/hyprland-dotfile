@@ -1,37 +1,42 @@
 sort=-time
 anchor=bottom-right
-layer=overlay
+layer=top
 max-visible=-1
-#group-by=app-name
+group-by=none
 
 width=350
 height=100
 margin=10,25
 text-alignment=left
-font=GoMono Nerd Font 11
+font=GoMono Nerd Font
 format=<i>%a</i><b>\n%s</b>\n%b
 
-background-color=#2e3440d0
 border-size=2
-border-color=#8fbcbb
 border-radius=10
 max-icon-size=64
 default-timeout=10000
 ignore-timeout=1
 
+background-color=#24273add
+text-color=#cad3f5
+progress-color=over #363a4f
+
+[grouped]
+format= <i>%a</i> (%g)<b>\n%s</b>\n%b
+
 [urgency=low]
-border-color=#8fbcbb
+border-color=#91d7e3
 
 [urgency=normal]
-border-color=#81a1c1
+border-color=#8aadf4
 
 [urgency=high]
-border-color=#bf616a
+border-color=#ed8796
 default-timeout=0
-
-[category=mpd]
-default-timeout=2000
-group-by=category
 
 [mode=do-not-disturb]
 invisible=1
+
+[app-name=discord]
+width=350
+height=200
