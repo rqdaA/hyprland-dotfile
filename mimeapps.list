@@ -1,6 +1,6 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
-x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
 
 [Added Associations]
 application/pdf=org.pwmt.zathura.desktop;wps-office-pdf.desktop;okularApplication_pdf.desktop;libreoffice-draw.desktop;firefox.desktop;org.pwmt.zathura-pdf-poppler.desktop;
@@ -8,3 +8,5 @@ image/*=feh.desktop;
 image/apng=feh.desktop;
 text/markdown=org.gnome.gitlab.somas.Apostrophe.desktop;
 text/plain=org.gnome.gitlab.somas.Apostrophe.desktop;
+video/mp4=vlc.desktop;
+image/jpeg=feh.desktop;
