@@ -89,9 +89,10 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
+            "activated": "󰐌",
+            "deactivated": "󰙦"
+        },
+        "timeout": 1440
     },
     "tray": {
         "icon-size": 20,
