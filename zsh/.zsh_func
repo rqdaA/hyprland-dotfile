@@ -10,10 +10,9 @@ _remove_container() {
 }
 
 pwn-container() {
-    containers=("18.04" "20.04" "22.04" "23.04" "24.04")
     _remove_container "$2"
-    echo "pwn-img:${containers[$3]}"
-    docker run --privileged --rm -d -it --name $2 --mount type=bind,source="$HOME/me/ctf/$1/$2",target="/home/user/ctf/" "pwn-img:${containers[$3]}" &> /dev/null
+    echo "pwn-img:$3"
+    docker run --privileged --rm -d -it --name $2 --mount type=bind,source="$HOME/me/ctf/$1/$2",target="/home/user/ctf/" "pwn-img:$3" # &> /dev/null
     pwn-exec $2
 }
 
@@ -29,10 +28,9 @@ pwn-alpine-compile() {
 }
 
 pwn-sandbox() {
-    containers=("18.04" "20.04" "22.04" "23.04" "23.10")
     _remove_container "sand"
-    echo "pwn-img:${containers[$1]}"
-    docker run --rm -d -it --name "sand" --mount type=bind,source="$HOME/me/sand/",target="/home/user/ctf/" "pwn-img:${containers[$1]}" # &> /dev/null
+    echo "pwn-img:$1"
+    docker run --rm -d -it --name "sand" --mount type=bind,source="$HOME/me/sand/",target="/home/user/ctf/" "pwn-img:$1" &> /dev/null
     pwn-exec "sand"
 }
 
