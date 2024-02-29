@@ -9,7 +9,8 @@ Documentation=https://github.com/swaywm/swayidle
 Environment=lock="gtklock --no-input-inhibit --start-hidden --daemonize"
 Environment=enable_screen="hyprctl dispatch dpms on"
 Environment=disable_screen="hyprctl dispatch dpms off"
-ExecStart=/usr/bin/swayidle -w timeout 60 ${lock} timeout 120 ${disable_screen} resume ${enable_screen} after-resume ${lock}
+Environment=kill_other_lock="pkill gtklock"
+ExecStart=/usr/bin/swayidle -w timeout 60 ${lock} timeout 120 ${disable_screen} resume ${enable_screen} before-sleep ${kill_other_lock} after-resume ${lock}
 Restart=always
 
 # [Install]
